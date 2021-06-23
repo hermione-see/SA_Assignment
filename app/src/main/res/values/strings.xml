@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">SA Assignment</string>
+    <string name="introduction">Introduction</string>
+    <string name="welcome">Welcome to our product listing for android!</string>
+    <string name="tips">Here are some tips to guide you on your journey</string>
+    <string name="functions">Functions</string>
+    <string name="add">Add a new product, with its warranty expiry date.</string>
+    <string name="update">Keep track by updating or deleting entries</string>
+    <string name="empty" />
+    <string name="enjoy">Enjoy the experience! Hope it helps you keep track of your products well!</string>
+    <string name="experience">Experience</string>
+    <string name="hello_icon">Hello Icon</string>
+    <string name="product_icon">Product Icon</string>
+    <string name="experience_icon">Experience Icon</string>
+</resources>
