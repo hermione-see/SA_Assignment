@@ -12,4 +12,11 @@
     <string name="hello_icon">Hello Icon</string>
     <string name="product_icon">Product Icon</string>
     <string name="experience_icon">Experience Icon</string>
+
+    <string-array name="spinner">
+        <item>1 Month</item>
+        <item>3 Month</item>
+        <item>6 Month</item>
+    </string-array>
+
 </resources>

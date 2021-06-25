@@ -133,9 +133,9 @@
                     android:layout_marginEnd="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
-                    android:background="#6BA7CC"
                     android:text="Learn more"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#FFFFFF"
+                    app:backgroundTint="#6BA7CC" />
 
                 <Button
                     android:id="@+id/buttonNext"
@@ -144,7 +144,7 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
-                    android:background="#6BA7CC"
+                    app:backgroundTint="#6BA7CC"
                     android:text="Next"
                     android:textColor="#FFFFFF" />
             </LinearLayout>
