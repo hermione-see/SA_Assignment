@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">SA Assignment</string>
     <string name="introduction">Introduction</string>
-    <string name="welcome">Welcome to our product listing for android!</string>
+    <string name="welcome">Welcome to our product listing application!</string>
     <string name="tips">Here are some tips to guide you on your journey</string>
     <string name="functions">Functions</string>
     <string name="add">Add a new product, with its warranty expiry date.</string>
@@ -12,11 +12,23 @@
     <string name="hello_icon">Hello Icon</string>
     <string name="product_icon">Product Icon</string>
     <string name="experience_icon">Experience Icon</string>
+    <string name="expiry_date">Expiry Date:</string>
+    <string name="m">M</string>
+    <string name="d">D</string>
+    <string name="months_to_expiry">Month(s) to Expiry:</string>
+    <string name="product_list">Product List</string>
+    <string name="add_item">Add Item</string>
+    <string name="yyyy">YYYY</string>
+    <string name="btnAdd">Add</string>
+    <string name="btnUpdate">Update</string>
+    <string name="btnDelete">Delete</string>
+    <string name="item_name">Item Name:</string>
+    <string name="product_name">Product Name</string>
 
     <string-array name="spinner">
         <item>1 Month</item>
-        <item>3 Month</item>
-        <item>6 Month</item>
+        <item>3 Months</item>
+        <item>6 Months</item>
     </string-array>
 
 </resources>

@@ -22,11 +22,36 @@
                 android:id="@+id/textView13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:text="Product List"
+                android:layout_marginBottom="15dp"
+                android:text="@string/product_list"
                 android:textColor="#3F7EB3"
                 android:textSize="30sp"
                 android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/months_to_expiry"
+                    android:textColor="#3F7EB3"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/spinner" />
+
+            </LinearLayout>
 
             <ListView
                 android:id="@+id/ListViewProducts"
@@ -40,55 +65,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:text="Add Item"
+                android:text="@string/add_item"
                 android:textColor="#3F7EB3"
                 android:textSize="30sp"
                 android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Expiry Date:"
-                    android:textColor="#3F7EB3"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/editTextYear"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="YYYY"
-                    android:inputType="textPersonName"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/editTextTextPersonName2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="M"
-                    android:inputType="textPersonName"
-                    android:textSize="16sp" />
-
-                <EditText
-                    android:id="@+id/editTextTextPersonName3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="D"
-                    android:inputType="textPersonName"
-                    android:textSize="16sp" />
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -101,7 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Item Name: "
+                    android:text="@string/item_name"
                     android:textColor="#3F7EB3"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -112,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:hint="Product Name"
+                    android:hint="@string/product_name"
                     android:inputType="textPersonName"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -124,21 +104,41 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/textView12"
+                    android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Months to Expiry: "
+                    android:text="@string/expiry_date"
                     android:textColor="#3F7EB3"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <Spinner
-                    android:id="@+id/spinner"
-                    android:layout_width="230dp"
+                <EditText
+                    android:id="@+id/editTextYear"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:entries="@array/spinner" />
+                    android:hint="@string/yyyy"
+                    android:inputType="textPersonName"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/editTextMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/m"
+                    android:inputType="textPersonName"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/editTextDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/d"
+                    android:inputType="textPersonName"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -154,7 +154,16 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="#6BA7CC"
-                    android:text="Add"
+                    android:text="@string/btnAdd"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/buttonUpdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#6BA7CC"
+                    android:text="@string/btnUpdate"
                     android:textColor="#FFFFFF" />
 
                 <Button
@@ -163,16 +172,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="#6BA7CC"
-                    android:text="Update"
-                    android:textColor="#FFFFFF" />
-
-                <Button
-                    android:id="@+id/buttonClear"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#6BA7CC"
-                    android:text="Delete"
+                    android:text="@string/btnDelete"
                     android:textColor="#FFFFFF" />
 
             </LinearLayout>

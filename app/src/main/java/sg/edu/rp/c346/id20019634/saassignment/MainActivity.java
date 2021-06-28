@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intentUrl = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.samsung.com/sg/"));
+                Intent intentUrl = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.benjerry.com.sg/"));
                 startActivity(intentUrl);
                 Toast.makeText(MainActivity.this, "Proceeding to Website...", Toast.LENGTH_SHORT).show();
 
