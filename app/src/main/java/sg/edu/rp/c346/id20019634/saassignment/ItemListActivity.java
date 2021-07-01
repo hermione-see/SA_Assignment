@@ -13,6 +13,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class ItemListActivity extends AppCompatActivity {
 
@@ -75,15 +77,22 @@ public class ItemListActivity extends AppCompatActivity {
                 String newMonth = etMonth.getText().toString();
                 String newDay = etDay.getText().toString();
 
-                String newEntry = "Expiries " + newYear + "-" + newMonth + "-" + newDay + " " + newProduct;
+                if (newProduct.isEmpty() || newDay.isEmpty() || newMonth.isEmpty() || newYear.isEmpty()) {
 
-                alProducts.add(newEntry);
-                aaProducts.notifyDataSetChanged();
-                etName.setText(null);
-                etYear.setText(null);
-                etMonth.setText(null);
-                etDay.setText(null);
+                    Toast.makeText(ItemListActivity.this, "Please fill in all the mandatory details.", Toast.LENGTH_SHORT).show();
 
+                } else {
+                    String newEntry = "Expiries " + newYear + "-" + newMonth + "-" + newDay + " " + newProduct;
+
+                    alProducts.add(newEntry);
+                    Collections.sort(alProducts);
+                    aaProducts.notifyDataSetChanged();
+                    etName.setText(null);
+                    etYear.setText(null);
+                    etMonth.setText(null);
+                    etDay.setText(null);
+
+                }
             }
         });
 
@@ -93,10 +102,61 @@ public class ItemListActivity extends AppCompatActivity {
 
                 if (alProducts.isEmpty() == true) {
 
-                    Toast.makeText(ItemListActivity.this,"You don't have any task to remove.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ItemListActivity.this,"You don't have any products to delete.", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    for (int i = 0; i < alProducts.size(); i++) {
+                        if (alProducts.get(i).contains(etName.getText().toString())) {
+                            alProducts.remove(i);
+                            aaProducts.notifyDataSetChanged();
+
+                        } else {
+                            Toast.makeText(ItemListActivity.this,"This product does not exist in your list.", Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
+
+                }
+
+            }
+        });
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String newProduct = etName.getText().toString();
+                String newYear = etYear.getText().toString();
+                String newMonth = etMonth.getText().toString();
+                String newDay = etDay.getText().toString();
+
+                if (alProducts.isEmpty() == true) {
+
+                    Toast.makeText(ItemListActivity.this,"You don't have any products to update.", Toast.LENGTH_SHORT).show();
+
+                } else if (newProduct.isEmpty() || newDay.isEmpty() || newMonth.isEmpty() || newYear.isEmpty()) {
+
+                    Toast.makeText(ItemListActivity.this, "Please fill in all the mandatory details.", Toast.LENGTH_SHORT).show();
 
                 } else {
 
+                    for (int i = 0; i < alProducts.size(); i++) {
+                        if (alProducts.get(i).contains(etName.getText().toString())) {
+
+                            String updateEntry = "Expiries " + newYear + "-" + newMonth + "-" + newDay + " " + newProduct;
+
+                            alProducts.add(i, updateEntry);
+                            aaProducts.notifyDataSetChanged();
+
+                            break;
+
+                        } else {
+                            Toast.makeText(ItemListActivity.this,"This product does not exist in your list.", Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
 
                 }
 
