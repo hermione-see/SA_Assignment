@@ -2,6 +2,7 @@ package sg.edu.rp.c346.id20019634.saassignment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.drm.DrmStore;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,9 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -21,7 +24,7 @@ public class ItemListActivity extends AppCompatActivity {
     EditText etName, etYear, etMonth, etDay;
     Button btnAdd, btnUpdate, btnDelete;
     ListView lvProducts;
-    ArrayList<String> alProducts;
+    ArrayList<String> alProducts, alExpiry, alItem;
     Spinner spnMonths;
 
     @Override
@@ -40,6 +43,8 @@ public class ItemListActivity extends AppCompatActivity {
         spnMonths = findViewById(R.id.spinner);
 
         alProducts = new ArrayList<String>();
+        alExpiry = new ArrayList<String>();
+        alItem = new ArrayList<String>();
 
         ArrayAdapter aaProducts = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, alProducts);
         lvProducts.setAdapter(aaProducts);
@@ -47,19 +52,8 @@ public class ItemListActivity extends AppCompatActivity {
         spnMonths.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0: // 1 month
 
-                        break;
 
-                    case 1: // 3 months
-
-                        break;
-
-                    case 2: // 6 months
-
-                        break;
-                }
             }
 
             @Override
@@ -82,10 +76,18 @@ public class ItemListActivity extends AppCompatActivity {
                     Toast.makeText(ItemListActivity.this, "Please fill in all the mandatory details.", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    String newEntry = "Expiries " + newYear + "-" + newMonth + "-" + newDay + " " + newProduct;
+                    String date = newYear + "-" + newMonth + "-" + newDay;
+                    alExpiry.add(date);
+                    alItem.add(newProduct);
+                    Collections.sort(alItem);
+                    alProducts.clear();
 
-                    alProducts.add(newEntry);
-                    Collections.sort(alProducts);
+                    for (int i = 0; i < alItem.size(); i++) {
+                        String newEntry = "Expires " + alExpiry.get(i) + " " + alItem.get(i);
+                        alProducts.add(newEntry);
+
+                    }
+
                     aaProducts.notifyDataSetChanged();
                     etName.setText(null);
                     etYear.setText(null);
@@ -109,6 +111,7 @@ public class ItemListActivity extends AppCompatActivity {
                         if (alProducts.get(i).contains(etName.getText().toString())) {
                             alProducts.remove(i);
                             aaProducts.notifyDataSetChanged();
+                            break;
 
                         } else {
                             Toast.makeText(ItemListActivity.this,"This product does not exist in your list.", Toast.LENGTH_SHORT).show();
@@ -146,7 +149,7 @@ public class ItemListActivity extends AppCompatActivity {
 
                             String updateEntry = "Expiries " + newYear + "-" + newMonth + "-" + newDay + " " + newProduct;
 
-                            alProducts.add(i, updateEntry);
+                            alProducts.set(i, updateEntry);
                             aaProducts.notifyDataSetChanged();
 
                             break;
