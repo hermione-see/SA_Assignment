@@ -67,13 +67,17 @@ public class ItemListActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String newProduct = etName.getText().toString();
-                String newYear = etYear.getText().toString();
-                String newMonth = etMonth.getText().toString();
-                String newDay = etDay.getText().toString();
+                int newYear = Integer.parseInt(etYear.getText().toString());
+                int newMonth = Integer.parseInt(etMonth.getText().toString());
+                int newDay = Integer.parseInt(etDay.getText().toString());
 
-                if (newProduct.isEmpty() || newDay.isEmpty() || newMonth.isEmpty() || newYear.isEmpty()) {
+                if (newProduct.isEmpty() || newDay == 0 || newMonth == 0 || newYear == 0) {
 
                     Toast.makeText(ItemListActivity.this, "Please fill in all the mandatory details.", Toast.LENGTH_SHORT).show();
+
+                } else if (newYear < 2021 || newMonth > 12 || newDay > 31) {
+
+                    Toast.makeText(ItemListActivity.this, "Invalid Date.", Toast.LENGTH_SHORT).show();
 
                 } else {
                     String date = newYear + "-" + newMonth + "-" + newDay;
@@ -122,6 +126,11 @@ public class ItemListActivity extends AppCompatActivity {
 
                 }
 
+                etName.setText(null);
+                etYear.setText(null);
+                etMonth.setText(null);
+                etDay.setText(null);
+
             }
         });
 
@@ -162,6 +171,11 @@ public class ItemListActivity extends AppCompatActivity {
                     }
 
                 }
+
+                etName.setText(null);
+                etYear.setText(null);
+                etMonth.setText(null);
+                etDay.setText(null);
 
             }
         });
